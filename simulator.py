@@ -42,7 +42,6 @@ class AvatarGenerator:
         return image_path_sequence
 
     def render_avatar_image(self, image_path_sequence: List[str]):
-
         image = Image.new("RGBA", (24, 24), self.background_color)
         for image_path in image_path_sequence:
             layer_image = Image.open(image_path)
