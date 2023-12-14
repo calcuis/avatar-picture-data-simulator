@@ -1,6 +1,6 @@
 ## avatar data simulator
 
-Generate 10,000 samples for ai-picture-model-trainer : P
+Generate 10,000 samples for ai-picture-model-trainer (not a good idea though) : P
 
 The provided Python code defines a simple avatar generator using image layers. The generator creates avatars by combining different image layers randomly, each represented by a Layer class. The layers have a specified rarity, and whether a layer should be included in the avatar is determined by a random probability based on this rarity.
 Here's a breakdown of the code:
