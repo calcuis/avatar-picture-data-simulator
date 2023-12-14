@@ -20,3 +20,7 @@ AvatarGenerator Class:
 - Saves the generated avatar images to an output directory.
 
 Overall, the code is a basic implementation of an avatar generator that combines different image layers to create diverse avatars. The rarities assigned to layers control the likelihood of specific layers being included in the final avatar, adding variability to the generated images. The generated avatars are then saved in the "./output" directory.
+
+**Reference**
+
+github.com/pixegami/pixel-punk-avatars
