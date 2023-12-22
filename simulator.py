@@ -11,9 +11,6 @@ class Layer:
         random_image_file_name = random.choice(image_file_names)
         return os.path.join(self.path, random_image_file_name)
 
-    def randomize_image(self):
-        return random.random()
-
 class Generator:
     def __init__(self, images_path: str):
         self.layers: List[Layer] = self.load_image_layers(images_path)
@@ -33,9 +30,8 @@ class Generator:
     def generate_image_sequence(self):
         image_path_sequence = []
         for layer in self.layers:
-            if layer.randomize_image():
-                image_path = layer.get_random_image_path()
-                image_path_sequence.append(image_path)
+            image_path = layer.get_random_image_path()
+            image_path_sequence.append(image_path)
         return image_path_sequence
 
     def render_image(self, image_path_sequence: List[str]):
