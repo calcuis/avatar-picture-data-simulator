@@ -14,7 +14,7 @@ Layer Class:
 Generator Class:
 - The Generator class manages the image generation process.
 - `__init__(self, images_path: str)`: initializes the generator with a base path for the layers, sets the background color to None (transparent), defines the output path for generated images as "./data," and creates the output - directory if it doesn't exist. It also loads the layers from the specified images_path during initialization.
-- load_image_layers(self, images_path: str): loads and returns a list of Layer objects based on subdirectories in the specified images_path.
+- `load_image_layers(self, images_path: str)`: loads and returns a list of Layer objects based on subdirectories in the specified images_path.
 - `generate_image_sequence(self)`: generates a sequence of image paths by sequentially selecting a random image from each layer.
 - `render_image(self, image_path_sequence: List[str])`: creates a composite image by alpha-compositing the images from the generated sequence onto a blank canvas. The canvas size is 24x24 pixels.
 - `save_image(self, image: Image.Image, i: int = 0)`: saves the generated image with a filename based on the iteration index.
@@ -24,7 +24,7 @@ Generator Class:
 - The generate function is defined outside the classes and serves as a convenient way to create a Generator instance and generate a specified number of images (i.e., 1000 in this case) from the layers located in the "./components" directory.
 - 
 Script Execution:
-- The script concludes by calling generate(1000), which triggers the generation of 1000 composite images; the number of generation is editable.
+- The script concludes by calling generate(1000), which triggers the generation of 1k composite images; the number of generation is editable.
 
 The code assumes that each subdirectory in "./components" represents a separate layer, and images within each layer directory are combined to create the final composite image. The generated images are saved in the "./data" directory.
 
