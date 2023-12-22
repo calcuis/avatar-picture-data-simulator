@@ -5,21 +5,20 @@ from PIL import Image
 class Layer:
     def __init__(self, path: str):
         self.path = path
-        self.rarity: float = 1.0
 
     def get_random_image_path(self):
         image_file_names = os.listdir(self.path)
         random_image_file_name = random.choice(image_file_names)
         return os.path.join(self.path, random_image_file_name)
 
-    def should_generate(self) -> bool:
-        return random.random() < self.rarity
+    def randomize_image(self) -> bool:
+        return random.random()
 
-class AvatarGenerator:
+class Generator:
     def __init__(self, images_path: str):
         self.layers: List[Layer] = self.load_image_layers(images_path)
         self.background_color = (None)
-        self.output_path: str = "./output"
+        self.output_path: str = "./data"
         os.makedirs(self.output_path, exist_ok=True)
 
     def load_image_layers(self, images_path: str):
@@ -29,19 +28,18 @@ class AvatarGenerator:
             layer_path = os.path.join(images_path, sub_path)
             layer = Layer(layer_path)
             layers.append(layer)
-        layers[2].rarity = 0.80
-        layers[3].rarity = 0.15
         return layers
 
     def generate_image_sequence(self):
         image_path_sequence = []
         for layer in self.layers:
-            if layer.should_generate():
+            if layer.randomize_image():
                 image_path = layer.get_random_image_path()
                 image_path_sequence.append(image_path)
         return image_path_sequence
 
-    def render_avatar_image(self, image_path_sequence: List[str]):
+    def render_image(self, image_path_sequence: List[str]):
+
         image = Image.new("RGBA", (24, 24), self.background_color)
         for image_path in image_path_sequence:
             layer_image = Image.open(image_path)
@@ -49,21 +47,22 @@ class AvatarGenerator:
         return image
 
     def save_image(self, image: Image.Image, i: int = 0):
-        image_index = str(i).zfill(4)
-        image_file_name = f"punk{image_index}.png"
+        image_index = str(i).zfill(3) # begin with "000"
+        image_file_name = f"{image_index}.png"
         image_save_path = os.path.join(self.output_path, image_file_name)
         image.save(image_save_path)
 
-    def generate_avatar(self, n: int = 1):
+    def generate(self, n: int = 1):
         print("Processing...")
         for i in range(n):
             image_path_sequence = self.generate_image_sequence()
-            image = self.render_avatar_image(image_path_sequence)
+            image = self.render_image(image_path_sequence)
             self.save_image(image, i)
         print("Done!")
 
-def generate_avatar(number):
-    generator = AvatarGenerator("./components")
-    generator.generate_avatar(number)
+def generate(number):
+    generator = Generator("./components")
+    generator.generate(number)
 
-generate_avatar(10000) # sample size = 10k
+# specify the number of items being generated
+generate(1000)
