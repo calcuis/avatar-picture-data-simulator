@@ -1,6 +1,6 @@
 ## avatar data simulator
 
-Generate 10,000 samples for ai-picture-model-trainer (not a good idea though) : P
+Generate 10,000 samples for ai-picture-model-trainer : P
 
 This Python code defines an image generator using the Pillow library (PIL). The generator creates composite images by sequentially selecting a random image from each layer and combining them. Here's an explanation of the code:
 
