@@ -13,7 +13,7 @@ Layer Class:
 
 Generator Class:
 - The Generator class manages the image generation process.
-- `__init__(self, images_path: str)`: initializes the generator with a base path for the layers, sets the background color to None, defines the output path for generated images as "./data," and creates the output - directory if it doesn't exist. It also loads the layers from the specified images_path during initialization.
+- `__init__(self, images_path: str)`: initializes the generator with a base path for the layers, sets the background color to None (transparent), defines the output path for generated images as "./data," and creates the output - directory if it doesn't exist. It also loads the layers from the specified images_path during initialization.
 - load_image_layers(self, images_path: str): loads and returns a list of Layer objects based on subdirectories in the specified images_path.
 - `generate_image_sequence(self)`: generates a sequence of image paths by sequentially selecting a random image from each layer.
 - `render_image(self, image_path_sequence: List[str])`: creates a composite image by alpha-compositing the images from the generated sequence onto a blank canvas. The canvas size is 24x24 pixels.
