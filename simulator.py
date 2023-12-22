@@ -11,7 +11,7 @@ class Layer:
         random_image_file_name = random.choice(image_file_names)
         return os.path.join(self.path, random_image_file_name)
 
-    def randomize_image(self) -> bool:
+    def randomize_image(self):
         return random.random()
 
 class Generator:
