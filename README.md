@@ -21,7 +21,7 @@ Generator Class:
 - `generate(self, n: int = 1)`: initiates the image generation process. It generates a sequence of images for each iteration, renders the composite image, and saves it. The number of iterations is specified by the parameter n, with a default value of 1.
 
 `generate` Function:
-- The generate function is defined outside the classes and serves as a convenient way to create a Generator instance and generate a specified number of images (1000 in this case) from the layers located in the "./components" directory.
+- The generate function is defined outside the classes and serves as a convenient way to create a Generator instance and generate a specified number of images (i.e., 1000 in this case) from the layers located in the "./components" directory.
 - 
 Script Execution:
 - The script concludes by calling generate(1000), which triggers the generation of 1000 composite images; the number of generation is editable.
